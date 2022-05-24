@@ -1,79 +1,118 @@
+let asetricParser = (arg) =>{
+    arg = arg.replace('*','×');
+    return arg.includes('*') ? asetricParser(arg) : arg;
+}
+let value= '',
+ result = '';
+
 let one = document.getElementById('one');
 one.addEventListener('click', (event) => {
-     document.forms.display.value += 1;
+     value += 1;
+     result = value.includes('*') ? asetricParser(value) : value;
+     document.forms.display.value = result;    
 })
 let two = document.getElementById('two');
 two.addEventListener('click', (event) => {
-     document.forms.display.value += 2;
+     value += 2;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let three = document.getElementById('three');
 three.addEventListener('click', (event) => {
-     document.forms.display.value += 3;
+     value += 3;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let four = document.getElementById('four');
 four.addEventListener('click', (event) => {
-     document.forms.display.value += 4;
+     value += 4;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let five = document.getElementById('five');
 five.addEventListener('click', (event) => {
-     document.forms.display.value += 5;
+     value += 5;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let six = document.getElementById('six');
 six.addEventListener('click', (event) => {
-     document.forms.display.value += 6;
+     value += 6;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let seven = document.getElementById('seven');
 seven.addEventListener('click', (event) => {
-     document.forms.display.value += 7;
+     value += 7;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let eight = document.getElementById('eight');
 eight.addEventListener('click', (event) => {
-     document.forms.display.value += 8;
+     value += 8;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let nine = document.getElementById('nine');
 nine.addEventListener('click', (event) => {
-     document.forms.display.value += 9;
+     value += 9;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let zero = document.getElementById('zero');
 zero.addEventListener('click', (event) => {
-     document.forms.display.value += 0;
+     value += 0;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let dot = document.getElementById('dot');
 dot.addEventListener('click', (event) => {
-    document.forms.display.value += '.';
+    value += '.';
+    result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let slash = document.getElementById('divide');
 slash.addEventListener('click', (event) => {
-    document.forms.display.value += '/';
+    value += '/';
+    result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let reset = document.getElementById('reset');
 reset.addEventListener('click', (event) => {
-    document.forms.display.value = '';
+    value = '';
+    result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let del = document.getElementById('del');
 del.addEventListener('click', (event) => {
-    var k = document.forms.display.value;
-    let count = k.length;
-    let rount = count - 1;
-    let slice = k.slice(0,rount);
-    document.forms.display.value = slice;
+    value = value.slice(0,-1);
+    result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let plus = document.getElementById('plus');
 plus.addEventListener('click', (event) => {
-     document.forms.display.value += "+" ;
+     value += "+" ;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let times = document.getElementById('times');
 times.addEventListener('click', (event) => {
-     document.forms.display.value += "*" ;
+     value += "*" ;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 let minus = document.getElementById('minus');
 minus.addEventListener('click', (event) => {
-     document.forms.display.value += "-" ;
+     value += "-" ;
+     result = value.includes('*') ? asetricParser(value) : value;
+document.forms.display.value = result;
 })
 
 let equal = document.getElementById('equal');
 equal.addEventListener('click', (event) => {
-    document.forms.display.value = eval(document.forms.display.value);
+    value = eval(value);
+    result =  value;
+document.forms.display.value = result;
 })
 // functions
 //changes the background on the click of the first toggle button
