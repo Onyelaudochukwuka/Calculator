@@ -65,7 +65,7 @@
   /* Font */
 
   --Fontsize: 32px;
-  --Family: 'League Spartan', sans-serif;
+  --Family: "League Spartan", sans-serif;
   --Weights: 700;
 }
 body {
@@ -241,7 +241,7 @@ section {
 }
 .keybac1 {
   background-color: var(--togglebackground);
-    color: var(--text2);
+  color: var(--text2);
 }
 .keybac2 {
   background-color: var(--togglebackground2);
@@ -393,9 +393,9 @@ input[type="button"] {
   padding: 10px;
   font-weight: 700;
   font-size: 23px;
-  transition-property: background, color;    
-    transition-duration: 500ms;
-    transition-timing-function: ease-in;
+  transition-property: background, color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
   cursor: pointer;
 }
 #reset {
@@ -460,68 +460,91 @@ a {
 input[type="button"]:active {
   transform: scale(0.8);
 }
-.float1{
-    float: left;
-    margin-inline : 5px 0;
+.float1 {
+  float: left;
+  margin-inline: 5px 0;
 }
-.float2{
-    float: none;
-    margin-inline : auto;
+.float2 {
+  float: none;
+  margin-inline: auto;
 }
-.float3{
-    float: right;
-    margin-inline : 0 5px;
+.float3 {
+  float: right;
+  margin-inline: 0 5px;
 }
-form{
-    position: relative;
+form {
+  position: relative;
 }
-label::before{
-    content: attr(data-prev);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 30px;
-    color: white;
-    font-size: 0.75em;
-    z-index: 1;
+.label1::before {
+  content: attr(data-prev);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 30px;
+  color: white;
+  font-size: 0.75em;
+  z-index: 1;
+  color: var(--text2);
 }
-.historyDetails{
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 45%;
-    height: 100%;
-    transform: translateX(0);
-    display: flex;
-    flex-direction: column;
-    transition: transform 500ms ease-in-out;
-    transform-origin: right;
-    z-index: 2;
+.label2::before {
+  content: attr(data-prev);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 30px;
+  color: white;
+  font-size: 0.75em;
+  z-index: 1;
+  color: var(--text3);
 }
-.historyContent{
-        flex-grow: 1;
-    overflow: auto;
-    height: 75%;
-    padding-block: 30px;
+.label3::before {
+  content: attr(data-prev);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 30px;
+  color: white;
+  font-size: 0.75em;
+  z-index: 1;
+  color: var(--text5);
+}
 
+.historyDetails {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  height: 100%;
+  transform: translateX(0);
+  display: flex;
+  flex-direction: column;
+  transition: transform 500ms ease-in-out;
+  transform-origin: right;
+  z-index: 2;
 }
-.close{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
+.historyContent {
+  flex-grow: 1;
+  overflow: auto;
+  height: 75%;
+  padding-block: 30px;
 }
-.hidden{
-    transform: translateX(100%);
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
 }
-.clear{
-    display: flex;
-    font-size: 0.75em;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    align-items: center;
-    cursor: pointer;
+.hidden {
+  transform: translateX(100%);
+}
+.clear {
+  display: flex;
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  cursor: pointer;
 }
