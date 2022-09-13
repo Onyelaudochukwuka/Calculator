@@ -65,7 +65,7 @@
   /* Font */
 
   --Fontsize: 32px;
-  --Family: "Spartan";
+  --Family: 'League Spartan', sans-serif;
   --Weights: 700;
 }
 body {
@@ -253,12 +253,15 @@ section {
 }
 .svgBac {
   fill: var(--text2);
+  stroke: var(--keyshadow3);
 }
 .svgBac2 {
   fill: var(--text3);
+  stroke: var(--keyshadow7);
 }
 .svgBac3 {
   fill: var(--text5);
+  stroke: var(--keyshadow6);
 }
 .grid {
   display: grid;
@@ -491,9 +494,17 @@ label::before{
     height: 100%;
     transform: translateX(0);
     display: flex;
+    flex-direction: column;
     transition: transform 500ms ease-in-out;
     transform-origin: right;
     z-index: 2;
+}
+.historyContent{
+        flex-grow: 1;
+    overflow: auto;
+    height: 75%;
+    padding-block: 30px;
+
 }
 .close{
     position: absolute;
@@ -504,4 +515,13 @@ label::before{
 }
 .hidden{
     transform: translateX(100%);
+}
+.clear{
+    display: flex;
+    font-size: 0.75em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    cursor: pointer;
 }
