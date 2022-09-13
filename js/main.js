@@ -13,7 +13,6 @@ const one = document.getElementById('one');
 const historyDetails = document.getElementById('historyDetails');
 const historyContent = document.getElementById('historyContent');
 const label = document.getElementById("label");
-console.log(label);
 const addDetails = (value) => {
     if (!value) return;
     const p = document.createElement('p');
@@ -154,7 +153,6 @@ close.addEventListener('click', (event) => {
     historyDetails.classList.toggle('hidden');
 });
 const clear = document.getElementById('clear');
-console.log(clear)
 clear.addEventListener('click', (event) => {
     historyArr = [];
     const pTags = document.querySelectorAll("#historyContent p");
