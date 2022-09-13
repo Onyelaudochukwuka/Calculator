@@ -5,14 +5,18 @@ const asetricParser = (arg) => {
 let value = '',
     result = '',
     prev = "",
-    historyArr = !!window.localStorage.getItem("history") ? [window.localStorage.getItem("history")] : [];
-
+    historyArr = !!window.localStorage.getItem("history") ? [...JSON.parse(window.localStorage.getItem("history"))] : [];
+window.addEventListener('load', () => {
+    document.forms.display.value = result;
+})
 const one = document.getElementById('one');
 const historyDetails = document.getElementById('historyDetails');
+const historyContent = document.getElementById('historyContent');
 const addDetails = (value) => {
+    if (!value) return;
     const p = document.createElement('p');
     p.innerHTML = `${value.includes('*') ? asetricParser(value) : value} = ${eval(value)}`;
-    historyDetails.appendChild(p);
+    historyContent.appendChild(p);
 }
 if (!!historyArr[0]) {
     historyArr.forEach((item) => addDetails(item));
@@ -78,15 +82,14 @@ zero.addEventListener('click', (event) => {
 })
 const dot = document.getElementById('dot');
 dot.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.') return;
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     value += '.';
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
 })
 const slash = document.getElementById('divide');
 slash.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.') return;
-
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     value += '/';
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
@@ -105,7 +108,7 @@ del.addEventListener('click', (event) => {
 })
 const plus = document.getElementById('plus');
 plus.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.') return;
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     value += "+";
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
@@ -114,14 +117,14 @@ plus.addEventListener('click', (event) => {
 })
 const times = document.getElementById('times');
 times.addEventListener('click', (event) => {
-        if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.') return;
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     value += "*";
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
 })
 const minus = document.getElementById('minus');
 minus.addEventListener('click', (event) => {
-        if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.') return;
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     value += "-";
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
@@ -129,6 +132,7 @@ minus.addEventListener('click', (event) => {
 
 const equal = document.getElementById('equal');
 equal.addEventListener('click', (event) => {
+    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     if (value === prev) return
     historyArr = [...historyArr, value];
     document.getElementById("label").setAttribute("data-prev", historyArr[historyArr.length - 1])
@@ -146,6 +150,14 @@ history.addEventListener('click', (event) => {
 const close = document.getElementById('close');
 close.addEventListener('click', (event) => {
     historyDetails.classList.toggle('hidden');
+});
+const clear = document.getElementById('clear');
+console.log(clear)
+clear.addEventListener('click', (event) => {
+    historyArr = [];
+    const pTags = document.querySelectorAll("#historyContent p");
+    pTags.forEach((item) => item.remove());
+    window.localStorage.removeItem("history");
 });
 // functions
 //changes the background on the click of the first toggle button
@@ -355,7 +367,6 @@ const theme2 = document.getElementById('b');
 const theme3 = document.getElementById('c');
 const float = document.getElementById('float');
 const svgIcon = document.querySelectorAll('.icons');
-console.log(svgIcon);
 const svg = document.getElementById('svg');
 theme1.addEventListener('click', (event) => {
     classChanger1(document.body);
