@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
 const one = document.getElementById('one');
 const historyDetails = document.getElementById('historyDetails');
 const historyContent = document.getElementById('historyContent');
+const label = document.getElementById("label");
+console.log(label);
 const addDetails = (value) => {
     if (!value) return;
     const p = document.createElement('p');
@@ -135,7 +137,7 @@ equal.addEventListener('click', (event) => {
     if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     if (value === prev) return
     historyArr = [...historyArr, value];
-    document.getElementById("label").setAttribute("data-prev", historyArr[historyArr.length - 1])
+    label.setAttribute("data-prev", historyArr[historyArr.length - 1])
     value = value !== prev ? eval(value) : value;
     prev = value;
     result = String(value);
@@ -361,6 +363,24 @@ const floatToggle3 = (DomElement) => {
     Element.classList.remove('float2');
     Element.classList.add('float3');
 }
+const labelToggle1 = (DomElement) => {
+    const Element = DomElement;
+    Element.classList.add('label1');
+    Element.classList.remove('label2');
+    Element.classList.remove('label3');
+}
+const labelToggle2 = (DomElement) => {
+    const Element = DomElement;
+    Element.classList.remove('label1');
+    Element.classList.add('label2');
+    Element.classList.remove('label3');
+}
+const labelToggle3 = (DomElement) => {
+    const Element = DomElement;
+    Element.classList.remove('label1');
+    Element.classList.remove('label2');
+    Element.classList.add('label3');
+}
 const footer = document.getElementById('footer');
 const theme1 = document.getElementById('a');
 const theme2 = document.getElementById('b');
@@ -395,6 +415,7 @@ theme1.addEventListener('click', (event) => {
     buttonEqual1(float);
     buttonEqual1(equal);
     footer1(footer);
+    labelToggle1(label);
     svgIcon.forEach((icon) => svg1(icon));
     floatToggle(float)
 })
@@ -425,6 +446,7 @@ theme2.addEventListener('click', (event) => {
     buttonEqual2(float);
     buttonEqual2(equal);
     footer2(footer);
+    labelToggle2(label);
     svgIcon.forEach((icon) => svg2(icon));
     floatToggle2(float)
 })
@@ -455,6 +477,7 @@ theme3.addEventListener('click', (event) => {
     buttonEqual3(float);
     buttonEqual3(equal);
     footer3(footer);
+    labelToggle3(label);
     svgIcon.forEach((icon) => svg3(icon));
     floatToggle3(float)
 })
