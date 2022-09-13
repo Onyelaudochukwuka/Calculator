@@ -13,8 +13,15 @@
 </head>
 
 <body class="bac1">
-    <center>
-        <section>
+    <section>
+        <div class="history" id="history">
+            <svg id="svgIcon" class="icon icons svgBac" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 8v5h5v-2h-3V8z" />
+            <path
+                d="M21.292 8.497a8.957 8.957 0 0 0-1.928-2.862 9.004 9.004 0 0 0-4.55-2.452 9.09 9.09 0 0 0-3.626 0 8.965 8.965 0 0 0-4.552 2.453 9.048 9.048 0 0 0-1.928 2.86A8.963 8.963 0 0 0 4 12l.001.025H2L5 16l3-3.975H6.001L6 12a6.957 6.957 0 0 1 1.195-3.913 7.066 7.066 0 0 1 1.891-1.892 7.034 7.034 0 0 1 2.503-1.054 7.003 7.003 0 0 1 8.269 5.445 7.117 7.117 0 0 1 0 2.824 6.936 6.936 0 0 1-1.054 2.503c-.25.371-.537.72-.854 1.036a7.058 7.058 0 0 1-2.225 1.501 6.98 6.98 0 0 1-1.313.408 7.117 7.117 0 0 1-2.823 0 6.957 6.957 0 0 1-2.501-1.053 7.066 7.066 0 0 1-1.037-.855l-1.414 1.414A8.985 8.985 0 0 0 13 21a9.05 9.05 0 0 0 3.503-.707 9.009 9.009 0 0 0 3.959-3.26A8.968 8.968 0 0 0 22 12a8.928 8.928 0 0 0-.708-3.503z" />
+        </svg>
+    </div>
+        <div class="container">
             <div Id="first" class="first top1">
                 <h5>calc</h4>
                     <span class="flex">
@@ -26,14 +33,16 @@
                                 <code id="c" class="c">3</code>
                             </span>
                             <span class="svg keybac1" id="svg">
-                                <div class="ww buttonequal1" id="float"></div>
+                                <div class="toggle buttonequal1" id="float"></div>
                             </span>
                         </span>
                     </span>
 
             </div>
             <form name="forms">
-                <input type="text" name="display" id="second" class="second screen1" disabled>
+                <label id="label" data-prev=""></label>
+                <input type="text" name="display" id="second" data-prev="0" class="second screen1" disabled>
+
                 <div id="third" class="third keybac1">
                     <span class="grid">
                         <input type="button" value="7" id="seven" class="button1">
@@ -60,8 +69,17 @@
             </form>
             </div>
             </div>
+        </div>
         </section>
-    </center>
+        <section class="historyDetails hidden keybac1" id="historyDetails">
+            <div class="close icon" id="close">
+                <svg class="icons svgBac" id="svgIcon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.41 12L17.71 7.71C17.8983 7.5217 18.0041 7.2663 18.0041 7C18.0041 6.7337 17.8983 6.4783 17.71 6.29C17.5217 6.1017 17.2663 5.99591 17 5.99591C16.7337 5.99591 16.4783 6.1017 16.29 6.29L12 10.59L7.71 6.29C7.5217 6.1017 7.2663 5.99591 7 5.99591C6.7337 5.99591 6.4783 6.1017 6.29 6.29C6.1017 6.4783 5.99591 6.7337 5.99591 7C5.99591 7.2663 6.1017 7.5217 6.29 7.71L10.59 12L6.29 16.29C6.19627 16.383 6.12188 16.4936 6.07111 16.6154C6.02034 16.7373 5.9942 16.868 5.9942 17C5.9942 17.132 6.02034 17.2627 6.07111 17.3846C6.12188 17.5064 6.19627 17.617 6.29 17.71C6.38296 17.8037 6.49356 17.8781 6.61542 17.9289C6.73728 17.9797 6.86799 18.0058 7 18.0058C7.13201 18.0058 7.26272 17.9797 7.38458 17.9289C7.50644 17.8781 7.61704 17.8037 7.71 17.71L12 13.41L16.29 17.71C16.383 17.8037 16.4936 17.8781 16.6154 17.9289C16.7373 17.9797 16.868 18.0058 17 18.0058C17.132 18.0058 17.2627 17.9797 17.3846 17.9289C17.5064 17.8781 17.617 17.8037 17.71 17.71C17.8037 17.617 17.8781 17.5064 17.9289 17.3846C17.9797 17.2627 18.0058 17.132 18.0058 17C18.0058 16.868 17.9797 16.7373 17.9289 16.6154C17.8781 16.4936 17.8037 16.383 17.71 16.29L13.41 12Z"
+                        />
+                </svg>
+            </div>
+        </section>
     <footer id="footer" class="footer1"> <a href="https://github.com/Onyelaudochukwuka"><b>Designed By Udoka</b></a></footer>
     <script src="js/main.js"></script>
 </body>
