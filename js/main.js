@@ -299,9 +299,9 @@ const labelToggle3 = (DomElement) => {
     Element.classList.add('label3');
 }
 const footer = document.getElementById('footer');
-const theme1 = document.getElementById('a');
-const theme2 = document.getElementById('b');
-const theme3 = document.getElementById('c');
+const theme1 = document.getElementById('theme1');
+const theme2 = document.getElementById('theme2');
+const theme3 = document.getElementById('theme3');
 const float = document.getElementById('float');
 const svgIcon = document.querySelectorAll('.icons');
 const svg = document.getElementById('svg');
