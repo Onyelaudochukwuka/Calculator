@@ -33,7 +33,7 @@ const operatorBtns = document.querySelectorAll(".operatorBtn");
 operatorBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-        value += btn.value;
+        value += btn.value.replace('×', '*');
         result = value.includes('*') ? asetricParser(value) : value;
         document.forms.display.value = result;
     })
