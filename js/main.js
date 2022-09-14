@@ -22,7 +22,6 @@ if (!!historyArr[0]) {
     historyArr.forEach((item) => addDetails(item));
 }
 const numberBtns = document.querySelectorAll(".numberBtn");
-const operatorBtns = document.querySelectorAll(".operatorBtn");
 numberBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         value += btn.value;
@@ -30,20 +29,15 @@ numberBtns.forEach((btn) => {
         document.forms.display.value = result;
     })
 })
-const dot = document.getElementById('dot');
-dot.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-    value += '.';
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const slash = document.getElementById('divide');
-slash.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-    value += '/';
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
+const operatorBtns = document.querySelectorAll(".operatorBtn");
+operatorBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
+        value += btn.value;
+        result = value.includes('*') ? asetricParser(value) : value;
+        document.forms.display.value = result;
+    })
+});
 const reset = document.getElementById('reset');
 reset.addEventListener('click', (event) => {
     value = '';
@@ -52,43 +46,19 @@ reset.addEventListener('click', (event) => {
 })
 const del = document.getElementById('del');
 del.addEventListener('click', (event) => {
-    value = value.substring(0, value.length - 2);
+    value = value.substring(0, value.length - 1); 
     result = value.includes('*') ? asetricParser(value) : value;
     document.forms.display.value = result;
 })
-const plus = document.getElementById('plus');
-plus.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-    value += "+";
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-    document.getElementById("second").setAttribute("data-prev", prev);
-    
-})
-const times = document.getElementById('times');
-times.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-    value += "*";
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const minus = document.getElementById('minus');
-minus.addEventListener('click', (event) => {
-    if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
-    value += "-";
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-
 const equal = document.getElementById('equal');
 equal.addEventListener('click', (event) => {
     if (value[value.length - 1] === '+' || value[value.length - 1] === '-' || value[value.length - 1] === '*' || value[value.length - 1] === '/' || value[value.length - 1] === '.' || value[value.length - 1] === '') return;
     if (value === prev) return
     historyArr = [...historyArr, value];
-    label.setAttribute("data-prev", historyArr[historyArr.length - 1])
-    value = value !== prev ? eval(value) : value;
+    label.setAttribute("data-prev", historyArr[historyArr.length - 1].includes('*') ? asetricParser(historyArr[historyArr.length - 1]) : historyArr[historyArr.length - 1]);
+    value = value !== prev ? String(eval(value)) : value;
     prev = value;
-    result = String(value);
+    result = value;
     document.forms.display.value = result;
     historyArr.forEach((item) => addDetails(item));
     window.localStorage.setItem("history", JSON.stringify(historyArr));
@@ -337,12 +307,8 @@ const svgIcon = document.querySelectorAll('.icons');
 const svg = document.getElementById('svg');
 theme1.addEventListener('click', (event) => {
     classChanger1(document.body);
-   numberBtns.forEach((btn) => buttonChanger1(btn));
-    buttonChanger1(dot);
-    buttonChanger1(slash);
-    buttonChanger1(minus);
-    buttonChanger1(plus);
-    buttonChanger1(times);
+    numberBtns.forEach((btn) => buttonChanger1(btn));
+    operatorBtns.forEach((btn) => buttonChanger1(btn));
     topChanger1(first);
     screenChanger1(second);
     keyBackgroundChanger1(historyDetails);
@@ -360,11 +326,7 @@ theme1.addEventListener('click', (event) => {
 theme2.addEventListener('click', (event) => {
     classChanger2(document.body);
     numberBtns.forEach((btn) => buttonChanger2(btn));
-    buttonChanger2(dot);
-    buttonChanger2(slash);
-    buttonChanger2(minus);
-    buttonChanger2(plus);
-    buttonChanger2(times);
+    operatorBtns.forEach((btn) => buttonChanger2(btn));
     topChanger2(first);
     screenChanger2(second);
     keyBackgroundChanger2(historyDetails);
@@ -382,11 +344,7 @@ theme2.addEventListener('click', (event) => {
 theme3.addEventListener('click', (event) => {
     classChanger3(document.body);
     numberBtns.forEach((btn) => buttonChanger3(btn));
-    buttonChanger3(dot);
-    buttonChanger3(slash);
-    buttonChanger3(minus);
-    buttonChanger3(plus);
-    buttonChanger3(times);
+    operatorBtns.forEach((btn) => buttonChanger3(btn));
     topChanger3(first);
     screenChanger3(second);
     keyBackgroundChanger3(historyDetails);
