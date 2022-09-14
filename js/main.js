@@ -9,7 +9,6 @@ let value = '',
 window.addEventListener('load', () => {
     document.forms.display.value = result;
 })
-const one = document.getElementById('one');
 const historyDetails = document.getElementById('historyDetails');
 const historyContent = document.getElementById('historyContent');
 const label = document.getElementById("label");
@@ -22,64 +21,14 @@ const addDetails = (value) => {
 if (!!historyArr[0]) {
     historyArr.forEach((item) => addDetails(item));
 }
-one.addEventListener('click', (event) => {
-    value += 1;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const two = document.getElementById('two');
-two.addEventListener('click', (event) => {
-    value += 2;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const three = document.getElementById('three');
-three.addEventListener('click', (event) => {
-    value += 3;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const four = document.getElementById('four');
-four.addEventListener('click', (event) => {
-    value += 4;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const five = document.getElementById('five');
-five.addEventListener('click', (event) => {
-    value += 5;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const six = document.getElementById('six');
-six.addEventListener('click', (event) => {
-    value += 6;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const seven = document.getElementById('seven');
-seven.addEventListener('click', (event) => {
-    value += 7;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const eight = document.getElementById('eight');
-eight.addEventListener('click', (event) => {
-    value += 8;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const nine = document.getElementById('nine');
-nine.addEventListener('click', (event) => {
-    value += 9;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
-})
-const zero = document.getElementById('zero');
-zero.addEventListener('click', (event) => {
-    value += 0;
-    result = value.includes('*') ? asetricParser(value) : value;
-    document.forms.display.value = result;
+const numberBtns = document.querySelectorAll(".numberBtn");
+const operatorBtns = document.querySelectorAll(".operatorBtn");
+numberBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        value += btn.value;
+        result = value.includes('*') ? asetricParser(value) : value;
+        document.forms.display.value = result;
+    })
 })
 const dot = document.getElementById('dot');
 dot.addEventListener('click', (event) => {
@@ -388,16 +337,7 @@ const svgIcon = document.querySelectorAll('.icons');
 const svg = document.getElementById('svg');
 theme1.addEventListener('click', (event) => {
     classChanger1(document.body);
-    buttonChanger1(one);
-    buttonChanger1(two);
-    buttonChanger1(three);
-    buttonChanger1(four);
-    buttonChanger1(five);
-    buttonChanger1(six);
-    buttonChanger1(seven);
-    buttonChanger1(eight);
-    buttonChanger1(nine);
-    buttonChanger1(zero);
+   numberBtns.forEach((btn) => buttonChanger1(btn));
     buttonChanger1(dot);
     buttonChanger1(slash);
     buttonChanger1(minus);
@@ -419,16 +359,7 @@ theme1.addEventListener('click', (event) => {
 })
 theme2.addEventListener('click', (event) => {
     classChanger2(document.body);
-    buttonChanger2(one);
-    buttonChanger2(two);
-    buttonChanger2(three);
-    buttonChanger2(four);
-    buttonChanger2(five);
-    buttonChanger2(six);
-    buttonChanger2(seven);
-    buttonChanger2(eight);
-    buttonChanger2(nine);
-    buttonChanger2(zero);
+    numberBtns.forEach((btn) => buttonChanger2(btn));
     buttonChanger2(dot);
     buttonChanger2(slash);
     buttonChanger2(minus);
@@ -450,16 +381,7 @@ theme2.addEventListener('click', (event) => {
 })
 theme3.addEventListener('click', (event) => {
     classChanger3(document.body);
-    buttonChanger3(one);
-    buttonChanger3(two);
-    buttonChanger3(three);
-    buttonChanger3(four);
-    buttonChanger3(five);
-    buttonChanger3(six);
-    buttonChanger3(seven);
-    buttonChanger3(eight);
-    buttonChanger3(nine);
-    buttonChanger3(zero);
+    numberBtns.forEach((btn) => buttonChanger3(btn));
     buttonChanger3(dot);
     buttonChanger3(slash);
     buttonChanger3(minus);
