@@ -1,2 +1,2 @@
 # Calculator
-My Basic Calculator with Three background's
+My Basic Calculator with Three Theme's
